@@ -1,0 +1,18 @@
+@import "~constants/CSS/index";
+
+.nav__link {
+	font-family: Circe;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  color: #000;
+  text-decoration: none;
+
+  &:visited,
+  &:focus {
+    color: #000;
+  }
+
+  &:nth-last-child(n+2) {
+    margin-right: $PADDING / 4;
+  }
+}

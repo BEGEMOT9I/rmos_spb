@@ -1,0 +1,9 @@
+@import "~constants/CSS/index";
+
+.events {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  box-sizing: border-box;
+}

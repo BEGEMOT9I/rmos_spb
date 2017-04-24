@@ -1,0 +1,45 @@
+.calendar {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  min-height: 90vh;
+  height: 1px;
+  box-sizing: border-box;
+
+  .calendar__nav {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+
+    .nav__arrow {
+      width: 1.5rem;
+      height: 1.5rem;
+
+      &.nav__arrow_left {
+        margin-right: 10px;
+      }
+
+      &.nav__arrow_right {
+        margin-left: 10px;
+      }
+    }
+
+    .nav__title {
+      font-size: 1.5rem;
+    }
+  }
+
+  .calendar__container {
+    position: relative;
+    flex: auto;
+    width: 100%;
+    height: 100%;
+  }
+}

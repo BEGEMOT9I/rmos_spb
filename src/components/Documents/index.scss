@@ -1,0 +1,18 @@
+@import "~constants/CSS/index";
+
+.doc__item {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  padding: $PADDING / 4;
+  box-sizing: border-box;
+
+  & + .doc__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .doc__title {
+    font-family: Circe;
+    font-size: 1rem;
+  }
+}

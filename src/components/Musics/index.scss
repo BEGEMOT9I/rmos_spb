@@ -1,0 +1,13 @@
+@import "~constants/CSS/index";
+
+.audio__item {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  padding: $PADDING / 4;
+  box-sizing: border-box;
+
+  & + .audio__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+  }
+}

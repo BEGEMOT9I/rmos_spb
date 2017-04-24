@@ -1,0 +1,29 @@
+.month {
+  position: absolute;
+  display: flex;
+  flex-flow: column nowrap;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 0;
+
+  &.month_selected {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .week {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: auto;
+    width: 100%;
+    height: 100%;
+    margin-top: 0.5em;
+
+    &:last-child {
+      margin-bottom: 0.5em;
+    }
+  }
+}
