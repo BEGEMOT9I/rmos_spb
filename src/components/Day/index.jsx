@@ -5,6 +5,7 @@ import classNames from 'classnames'
 import { FormattingDate } from '../../modules/helpers'
 
 import * as calendar from '../../actions/calendar'
+import * as tooltip from '../../actions/tooltip'
 
 import Categories from '../Categories'
 
@@ -31,9 +32,22 @@ class Day extends Component {
     }
   }
 
+  showTooltip = () => {
+    this.props.showTooltip(this.props.events)
+  }
+
+  hideTooltip = () => {
+    this.props.hideTooltip()
+  }
+
   render() {
     return (
-      <div className={ classNames('day', { 'day_selected': this.props.selectedDays[FormattingDate(this.date)] }) } onClick={ () => this.props.toggleDay(this.date) }>
+      <div
+        className={ classNames('day', { 'day_selected': this.props.selectedDays[FormattingDate(this.date)] }) }
+        onClick={ () => this.props.toggleDay(this.date) }
+        onMouseEnter={ this.showTooltip }
+        onMouseLeave={ this.hideTooltip }
+      >
         <span>{ this.date.getDate() }</span>
         <Categories categories={ this.categories } mini/>
       </div>
@@ -53,6 +67,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   toggleDay: day => dispatch(calendar.toggleDay(day)),
+  showTooltip: events => dispatch(tooltip.toggle(true, events)),
+  hideTooltip: () => dispatch(tooltip.toggle(false)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Day)

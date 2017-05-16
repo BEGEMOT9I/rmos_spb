@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
 
+import CalendarTooltip from '../../components/CalendarTooltip'
 import Categories from '../../components/Categories'
 import Month from '../../components/Month'
 
@@ -14,6 +15,10 @@ class Calendar extends Component {
     super(props)
     this.firstDay = new Date(this.props.events[0].start_time)
     this.lastDay = new Date(this.props.events[this.props.events.length - 1].start_time)
+  }
+
+  componentDidMount() {
+    this.tooltip = document.querySelector('.calendar-tooltip')
   }
 
   generateMonths() {
@@ -75,9 +80,17 @@ class Calendar extends Component {
     dispatch(calendar.selectMonth(next_date.getMonth()))
   }
 
+  moveTooltip = event => {
+    const parentRect = event.currentTarget.parentNode.getBoundingClientRect()
+    const tooltipRect = this.tooltip.getBoundingClientRect()
+    this.tooltip.style.top = event.pageY - parentRect.top + 20 + 'px'
+    this.tooltip.style.left = event.pageX - parentRect.left - tooltipRect.width / 2 + 'px'
+  }
+
   render() {
     return (
       <div className="page-template__block calendar">
+        <CalendarTooltip/>
         <Categories categories={ this.props.categories }/>
         <nav className="calendar__nav">
           <svg className="nav__arrow nav__arrow_left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175" onClick={ this.changeYear.bind(this, -1) }>
@@ -94,7 +107,7 @@ class Calendar extends Component {
             <path d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5 c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z"/>
           </svg>
         </nav>
-        <div className="calendar__container">
+        <div className="calendar__container" onMouseMove={ this.moveTooltip }>
           { this.generateMonths() }
         </div>
       </div>

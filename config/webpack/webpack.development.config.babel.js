@@ -5,7 +5,7 @@ const Config = require('webpack-config').default
 module.exports = new Config().extend('config/webpack/webpack.base.config.babel.js').merge({
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://0.0.0.0:3001', // WebpackDevServer host and port
+    'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
     'webpack/hot/only-dev-server',
   ],
   plugins: [
@@ -16,7 +16,7 @@ module.exports = new Config().extend('config/webpack/webpack.base.config.babel.j
       filename: '[file].map'
     }),
     new Webpack.DefinePlugin({
-      'API_URL': JSON.stringify('http://0.0.0.0:3000'),
+      'API_URL': JSON.stringify('http://0.0.0.0:8000'),
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
   ],
