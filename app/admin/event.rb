@@ -16,13 +16,13 @@ ActiveAdmin.register Event do
       row :file do |event|
         span(event.file_identifier)
         br()
-        image_tag(event.file_url, width: "320")
+        image_tag(event.file_url, width: 320)
       end
       row :video do |event|
         if event.video.present?
           span(event.video_identifier)
           br()
-          video_tag([event.video_url], width: "320", controls: true)
+          video_tag([event.video_url], width: 320, controls: true)
         end
       end
       row :categories do |event|
@@ -47,7 +47,9 @@ ActiveAdmin.register Event do
         ? image_tag(f.object.file.url(), width: 200)
         : content_tag(:span, "Нет изображения")
       f.input :file_cache, :as => :hidden
-      f.input :video, :as => :file
+      f.input :video, :as => :file, :hint => f.object.video.present? \
+        ? video_tag(f.object.video.url(), width: 200, controls: true)
+        : content_tag(:span, "Нет видео")
       f.input :video_cache, :as => :hidden
       f.input :category_ids, collection: Category.all.map { |d| [d.title, d.id] }, multiple: 'multiple'
       f.input :document_ids, collection: Document.all.map { |d| [d.title, d.id] }, multiple: 'multiple'

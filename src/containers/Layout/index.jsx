@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 
-import 'normalize.css'
 import './index.scss'
 
 import Header from '../../components/Header'

@@ -16,6 +16,12 @@ module.exports = new Config().merge({
   resolve: {
     extensions: ['', '.js', '.jsx'],
     root: [path.resolve('./src')],
+    alias: {
+      'src': path.resolve('./src'),
+      'static': path.resolve('./src/assets'),
+      'images': path.resolve('./src/assets/images'),
+      'video': path.resolve('./src/assets/video'),
+    },
   },
   module: {
     loaders: [

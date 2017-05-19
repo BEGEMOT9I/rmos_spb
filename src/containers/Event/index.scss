@@ -4,9 +4,11 @@
   position: relative;
   display: flex;
   flex-flow: row nowrap;
+  justify-content: space-between;
   align-items: flex-end;
   min-height: 500px;
   height: 50vh;
+  box-shadow: 0 0 10px 2px #bbb;
 
   .main-block__image {
     position: absolute;
@@ -24,11 +26,24 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.8);
   }
 
   .main-block__title {
     position: relative;
+    max-width: 50%;
     margin: $PADDING;
+    font-size: 2rem;
+    line-height: 1;
+    color: #000;
+  }
+
+  .main-block__time {
+    position: relative;
+    margin: $PADDING;
+    font-family: Circe;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #555;
   }
 }

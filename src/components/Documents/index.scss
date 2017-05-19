@@ -1,18 +1,42 @@
 @import "~constants/CSS/index";
 
+.documents-list {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .doc__item {
   display: flex;
-  flex-flow: row nowrap;
-  width: 100%;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 20%;
   padding: $PADDING / 4;
   box-sizing: border-box;
 
-  & + .doc__item {
-    border-top: 1px solid rgba(0, 0, 0, 0.3);
+  .doc__icon {
+    max-width: 100px;
+    width: 100%;
+    height: auto;
   }
 
   .doc__title {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 5px;
     font-family: Circe;
-    font-size: 1rem;
+    font-size: 1.25rem;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+
+    &,
+    &:visited,
+    &:focus {
+      color: currentColor;
+    }
   }
 }

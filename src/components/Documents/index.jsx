@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
+
+import DOCTYPES from '../../constants/DocTypes'
 
 import './index.scss'
 
@@ -8,13 +10,16 @@ class Documents extends Component {
     return (
       <div className="page-template__block documents">
         <h1>Документы</h1>
-        {
-          this.props.documents.map(doc =>
-            <div key={ `doc-${Math.random() * doc.id}` } className="doc__item">
-              <a href={ API_URL + doc.file.url } className="doc__title" target="_blank">{ doc.title }</a>
-            </div>
-          )
-        }
+        <ul className="documents-list">
+          {
+            this.props.documents.map(doc =>
+              <li key={ `doc-${Math.random() * doc.id}` } className="doc__item">
+                <img className="doc__icon" src={ DOCTYPES[doc.extension].icon } alt=""/>
+                <a href={ API_URL + doc.file.url } className="doc__title" target="_blank" style={{ color: DOCTYPES[doc.extension].color }}>{ `${doc.title}.${doc.extension}` }</a>
+              </li>
+            )
+          }
+        </ul>
       </div>
     )
   }

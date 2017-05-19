@@ -83,7 +83,7 @@ class Calendar extends Component {
   moveTooltip = event => {
     const parentRect = event.currentTarget.parentNode.getBoundingClientRect()
     const tooltipRect = this.tooltip.getBoundingClientRect()
-    this.tooltip.style.top = event.pageY - parentRect.top + 20 + 'px'
+    this.tooltip.style.top = event.pageY + 'px'
     this.tooltip.style.left = event.pageX - parentRect.left - tooltipRect.width / 2 + 'px'
   }
 

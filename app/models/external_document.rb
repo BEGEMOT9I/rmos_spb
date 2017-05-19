@@ -5,4 +5,8 @@ class ExternalDocument < ApplicationRecord
   before_save do |doc|
     doc.title = doc.file.filename.sub(/\.\w*$/, '')
   end
+
+  def extension
+    file&.file&.extension
+  end
 end

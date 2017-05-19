@@ -26,4 +26,8 @@ class VideoUploader < CarrierWave::Uploader::Base
     %Q{#{version_name}_#{for_file.chomp(File.extname(for_file))}.png}
   end
 
+  # version :extension do
+  #   self.extension
+  # end
+
 end

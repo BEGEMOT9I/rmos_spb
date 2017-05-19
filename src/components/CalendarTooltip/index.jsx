@@ -22,6 +22,12 @@ const CalendarTooltip = props => {
     <div className={ props.isVisible ? 'calendar-tooltip tooltip_show' : 'calendar-tooltip' }>
       <ul className="tooltip-list">
         { events.map(event => event) }
+        {
+          !events.length &&
+          <li className="tooltip-item">
+            <span className="tooltip-item__empty">В этот день событий нет</span>
+          </li>
+        }
       </ul>
     </div>
   )
