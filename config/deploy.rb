@@ -32,7 +32,7 @@ set :pty, true
 set :rvm_ruby_version, '2.3.3'
 
 set :nvm_type, :user # or :system, depends on your nvm setup
-set :nvm_node, 'v6.10.1'
+set :nvm_node, 'v6.10.2'
 set :nvm_map_bins, %w{node npm yarn}
 
 set :yarn_target_path, -> { release_path.join('client') } #
