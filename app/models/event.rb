@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   mount_uploader :file, ImageUploader
+  mount_uploader :video, VideoUploader
 
   has_many :external_documents, dependent: :destroy
 

@@ -1,6 +1,6 @@
 ActiveAdmin.register Event do
 
-  permit_params :title, :file, :description, :external_documents, :start_time, external_documents_attributes: [:id, :file, :_destroy], category_ids: [], document_ids: []
+  permit_params :title, :file, :video, :description, :external_documents, :start_time, external_documents_attributes: [:id, :file, :_destroy], category_ids: [], document_ids: []
 
   index do
     selectable_column
@@ -13,10 +13,17 @@ ActiveAdmin.register Event do
   show do
     attributes_table do
       row :title
-      row :file do |f|
-        span(f.file_identifier)
+      row :file do |event|
+        span(event.file_identifier)
         br()
-        image_tag(f.file_url, width: "320")
+        image_tag(event.file_url, width: "320")
+      end
+      row :video do |event|
+        if event.video.present?
+          span(event.video_identifier)
+          br()
+          video_tag([event.video_url], width: "320", controls: true)
+        end
       end
       row :categories do |event|
         span event.categories.pluck(:title).join(', ')
@@ -40,6 +47,8 @@ ActiveAdmin.register Event do
         ? image_tag(f.object.file.url(), width: 200)
         : content_tag(:span, "Нет изображения")
       f.input :file_cache, :as => :hidden
+      f.input :video, :as => :file
+      f.input :video_cache, :as => :hidden
       f.input :category_ids, collection: Category.all.map { |d| [d.title, d.id] }, multiple: 'multiple'
       f.input :document_ids, collection: Document.all.map { |d| [d.title, d.id] }, multiple: 'multiple'
       f.has_many :external_documents, allow_destroy: true do |ff|
