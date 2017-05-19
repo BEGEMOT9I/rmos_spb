@@ -10,25 +10,12 @@
 /log/*
 !/log/.keep
 /tmp
-config/database.yml
 .idea
 /db/sphinx
 /config/test*
 /config/development*
 
-/public/index.html
-/public/bundle.js
-/public/bundle.css
-/public/fonts
-
-/public/assets
-/public/system
-/public/spec
-/public/tmp
-/public/uploads
-/public/plans
-/public/apartments_docs
-/public/gtfs/*
+/public
 !/public/.keep
 
 # Ignore pow config.

@@ -7,9 +7,10 @@ module.exports = new Config().extend('config/webpack/webpack.base.config.babel.j
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
     'webpack/hot/only-dev-server',
+    './src/index',
   ],
   plugins: [
-    new Webpack.NoErrorsPlugin(),
+    new Webpack.NoEmitOnErrorsPlugin(),
     new Webpack.HotModuleReplacementPlugin(),
     new Webpack.NamedModulesPlugin(),
     new Webpack.SourceMapDevToolPlugin({

@@ -16,10 +16,6 @@ class Root extends Component {
   }
 
   render() {
-    if (!this.props.siteData) {
-        return (<div />)
-    }
-
     return (
       <Provider store={this.props.store}>
         <Router history={this.props.history}>
@@ -34,14 +30,9 @@ class Root extends Component {
 }
 
 Root.propTypes = {
-  siteData: PropTypes.any,
   store: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   dispatch: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => ({
-  siteData: state.siteData
-});
-
-export default connect(mapStateToProps)(Root)
+export default connect(undefined)(Root)

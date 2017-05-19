@@ -214,32 +214,35 @@ class Gallery extends Component {
     return (
       <div className="page-template__block pictures">
         <h1>Галерея</h1>
-        <div className="slider-wrapper">
-          <ul className="slider" data-radius1="60" data-radius2="1364" data-centerx1="110" data-centerx2="1290">
-            {
-              this.generateSlides()
-            }
-          </ul>
-         
-          <ul className="navigation">
-            <li className="navigation__item"><div className="next" onClick={ this.moveSlide.bind(this) }>Next</div></li>
-            <li className="navigation__item"><div className="prev" onClick={ this.moveSlide.bind(this) }>Prev</div></li>
-          </ul>
-          
-          <div className="masks">
-            <svg viewBox="0 0 1400 800">
-              <defs>
-                <mask id="mask_left" height='800px' width="1400px" x="0" y="0" maskUnits="userSpaceOnUse">
-                  <path fill="white" d="M0,0v800h1400V0H0z M110,460c-33.137,0-60-26.863-60-60s26.863-60,60-60s60,26.863,60,60S143.137,460,110,460z"/>
-                </mask>
-         
-                <mask id="mask_right" height='800px' width="1400px" x="0" y="0" maskUnits="userSpaceOnUse">
-                  <path fill="white" d="M0,0v800h1400V0H0z M1290,460c-33.137,0-60-26.863-60-60s26.863-60,60-60s60,26.863,60,60S1323.137,460,1290,460z"/>
-                </mask>
-              </defs>
-            </svg>
+        {
+          !!this.props.pictures.length &&
+          <div className="slider-wrapper">
+            <ul className="slider" data-radius1="60" data-radius2="1364" data-centerx1="110" data-centerx2="1290">
+              {
+                this.generateSlides()
+              }
+            </ul>
+           
+            <ul className="navigation">
+              <li className="navigation__item"><div className="next" onClick={ this.moveSlide.bind(this) }>Next</div></li>
+              <li className="navigation__item"><div className="prev" onClick={ this.moveSlide.bind(this) }>Prev</div></li>
+            </ul>
+            
+            <div className="masks">
+              <svg viewBox="0 0 1400 800">
+                <defs>
+                  <mask id="mask_left" height='800px' width="1400px" x="0" y="0" maskUnits="userSpaceOnUse">
+                    <path fill="white" d="M0,0v800h1400V0H0z M110,460c-33.137,0-60-26.863-60-60s26.863-60,60-60s60,26.863,60,60S143.137,460,110,460z"/>
+                  </mask>
+           
+                  <mask id="mask_right" height='800px' width="1400px" x="0" y="0" maskUnits="userSpaceOnUse">
+                    <path fill="white" d="M0,0v800h1400V0H0z M1290,460c-33.137,0-60-26.863-60-60s26.863-60,60-60s60,26.863,60,60S1323.137,460,1290,460z"/>
+                  </mask>
+                </defs>
+              </svg>
+            </div>
           </div>
-        </div>
+        }
       </div>
     )
   }

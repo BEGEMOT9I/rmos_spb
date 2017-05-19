@@ -15,6 +15,11 @@ class Calendar extends Component {
     super(props)
     this.firstDay = new Date(this.props.events[0].start_time)
     this.lastDay = new Date(this.props.events[this.props.events.length - 1].start_time)
+
+    const now = new Date()
+    if (now.getTime() < this.firstDay.getTime()) {
+      this.firstDay = now
+    }
   }
 
   componentDidMount() {
