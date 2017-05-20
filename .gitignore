@@ -32,3 +32,5 @@ Procfile
 !.env.example
 
 .DS_Store
+
+/id_rsa*
