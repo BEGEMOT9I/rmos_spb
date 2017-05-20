@@ -8,7 +8,7 @@
   align-items: flex-end;
   min-height: 500px;
   height: 50vh;
-  box-shadow: 0 0 10px 2px #bbb;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 
   .main-block__image {
     position: absolute;
@@ -46,4 +46,21 @@
     line-height: 1.25;
     color: #555;
   }
+}
+
+.event__documents .doc__item {
+  margin: $padding / 4 0;
+}
+
+.event-info {
+  padding: $padding / 2;
+  box-sizing: border-box;
+}
+
+.event-info__video {
+  display: inline-block;
+  float: right;
+  width: 50%;
+  padding: $padding / 2 0 $padding / 2 $padding / 2;
+  box-sizing: border-box;
 }

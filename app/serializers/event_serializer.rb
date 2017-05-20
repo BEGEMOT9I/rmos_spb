@@ -5,6 +5,10 @@ class EventSerializer < ActiveModel::Serializer
   has_many :external_documents
 
   def video
-    { extension: object.video&.file&.extension, thumb: object.video.thumb, url: object.video.url }
+    {
+      extension: object.video&.file&.extension,
+      thumb: object.video.thumb,
+      url: object.video.url
+    }
   end
 end

@@ -8,6 +8,7 @@ module.exports = new Config().merge({
   output: {
     path: path.resolve('./public'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.jsx'],

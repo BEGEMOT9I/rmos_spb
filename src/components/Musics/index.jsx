@@ -41,7 +41,7 @@ class Musics extends Component {
   render() {
     return (
       <div className="page-template__block musics">
-        <h1>Аудио</h1>
+        <h1 className="block__title">Аудио</h1>
         <Filter
           name="musics"
           onInput={ this.onInput }

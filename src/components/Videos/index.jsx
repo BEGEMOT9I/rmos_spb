@@ -41,7 +41,7 @@ class Videos extends Component {
   render() {
     return (
       <div className="page-template__block videos">
-        <h1>Видео</h1>
+        <h1 className="block__title">Видео</h1>
         <Filter
           name="videos"
           onInput={ this.onInput }

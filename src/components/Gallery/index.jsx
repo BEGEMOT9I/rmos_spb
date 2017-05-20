@@ -213,7 +213,7 @@ class Gallery extends Component {
   render() {
     return (
       <div className="page-template__block pictures">
-        <h1>Галерея</h1>
+        <h1 className="block__title">Галерея</h1>
         {
           !!this.props.pictures.length &&
           <div className="slider-wrapper">

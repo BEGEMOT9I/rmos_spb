@@ -54,7 +54,7 @@ class Events extends Component {
   render() {
     return (
       <div className="page-template__block events">
-        <h1>События</h1>
+        <h1 className="block__title">События</h1>
         <Filter
           name="events"
           onInput={ this.onInput }

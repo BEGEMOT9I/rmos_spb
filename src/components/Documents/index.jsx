@@ -59,7 +59,7 @@ class Documents extends Component {
   render() {
     return (
       <div className="page-template__block documents">
-        <h1>Документы</h1>
+        <h1 className="block__title">Документы</h1>
         <Filter
           name="documents"
           onInput={ this.onInput }
@@ -77,8 +77,8 @@ class Documents extends Component {
           !!this.documents.length &&
           <ul className="documents__list">
             {
-              this.documents.map(doc =>
-                <li key={ `doc-${Math.random() * doc.id}` } className="doc__item">
+              this.documents.map(doc => 
+                <li key={ `doc-${doc.id}` } className="doc__item">
                   <img className="doc__icon" src={ DOCTYPES[doc.extension].icon } alt=""/>
                   <a href={ API_URL + doc.file.url } className="doc__title" target="_blank" style={{ color: DOCTYPES[doc.extension].color }}>{ `${doc.title}.${doc.extension}` }</a>
                 </li>
