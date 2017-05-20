@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Filter from '../Filter'
 
-import AUDIOTYPES from '../../constants/AUDIOTYPES'
+import AUDIOTYPES from '../../constants/AudioTypes'
 
 import * as media from '../../actions/media'
 

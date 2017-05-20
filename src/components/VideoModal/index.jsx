@@ -4,7 +4,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import $ from 'jquery'
 import _ from 'lodash'
 
-import VIDEOTYPES from '../../constants/VIDEOTYPES'
+import VIDEOTYPES from '../../constants/VideoTypes'
 
 import * as videoModal from '../../actions/videoModal'
 import * as media from '../../actions/media'
