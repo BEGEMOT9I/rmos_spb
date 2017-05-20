@@ -112,9 +112,9 @@ namespace :build do
   desc 'Install pakages'
   task :compile do
     on roles(:web) do
-      within "#{release_path}/client" do
+      within release_path do
         execute :yarn, 'install'
-        execute :yarn, :run, 'build:production'# && bundle exec rake react_on_rails:locale && yarn run build:production'"
+        execute :yarn, :run, 'build'
       end
     end
   end
