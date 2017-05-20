@@ -1,4 +1,4 @@
-@import "~constants/CSS/index";
+@import "~styles/constants";
 
 .nav__link {
 	font-family: Circe;
@@ -13,6 +13,6 @@
   }
 
   &:nth-last-child(n+2) {
-    margin-right: $PADDING / 4;
+    margin-right: $padding / 4;
   }
 }

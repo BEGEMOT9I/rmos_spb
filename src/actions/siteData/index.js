@@ -33,7 +33,7 @@ export function getData() {
   return (dispatch) => {
     if (typeof API_URL !== 'undefined') {
       axios
-        .get(`/data`)
+        .get(`${API_URL}/data`)
         .then(response => dispatch(load(response.data)))
     } else {
       dispatch(load({ data: 'empty' }))

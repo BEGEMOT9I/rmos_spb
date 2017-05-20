@@ -41,7 +41,7 @@ module.exports = new Config().extend('config/webpack/webpack.base.config.babel.j
   },
   plugins: [
     new Webpack.DefinePlugin({
-      API_URL: JSON.stringify('http://0.0.0.0:8000'),
+      API_URL: JSON.stringify(''),
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
       },

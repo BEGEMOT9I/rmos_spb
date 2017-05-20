@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import { FormattingDate } from '../../modules/helpers'
-
 import Day from '../Day'
 
 import './index.scss'

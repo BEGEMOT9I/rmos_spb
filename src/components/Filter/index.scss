@@ -1,0 +1,92 @@
+@import "~styles/constants";
+
+.filter {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: calc(100% - #{$padding});
+  margin: $padding / 2;
+  padding: 0;
+  font-family: Circe;
+}
+
+.filter__search {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 40%;
+}
+
+.search__label {
+  flex-shrink: 0;
+  margin-top: 4px;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.search__input {
+  width: 100%;
+  margin: 0 0 0 $padding / 2;
+  padding: 5px 5px 4px 5px;
+  font-size: 1rem;
+  line-height: 1.25;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  outline: none;
+
+  &::placeholder {
+    color: #aaa;
+  }
+}
+
+.filter__sorter {
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0 $padding / 2;
+}
+
+.sorter {
+  padding: 4px 10px;
+  font-size: 1rem;
+  line-height: 1.25;
+  background-color: #fff;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+
+  & + .sorter {
+    margin-left: $padding / 4;
+  }
+
+  span {
+    color: inherit;
+    transition: color 0.5s ease;
+  }
+
+  &.sorter_selected {
+    background-color: currentColor;
+
+    span {
+      color: #fff;
+    }
+  }
+}
+
+.filter__sorters {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.order {
+  padding: 4px 4px 4px 10px;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}

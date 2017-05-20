@@ -6,7 +6,7 @@ import CalendarTooltip from '../../components/CalendarTooltip'
 import Categories from '../../components/Categories'
 import Month from '../../components/Month'
 
-import * as calendar from '../../actions/calendar';
+import * as calendar from '../../actions/calendar'
 
 import './index.scss'
 

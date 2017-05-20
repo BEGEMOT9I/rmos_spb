@@ -1,13 +1,32 @@
-@import "~constants/CSS/index";
+@import "~styles/constants";
 
-.audio__item {
+.musics__list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+.music__item {
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
-  padding: $PADDING / 4;
+  padding: $padding / 4;
   box-sizing: border-box;
 
   & + .audio__item {
     border-top: 1px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .audio__title {
+    width: 50%;
+    padding-top: 5px;
+    padding-right: $padding / 4;
+    box-sizing: border-box;
+  }
+
+  .audio__content {
+    width: 50%;
   }
 }

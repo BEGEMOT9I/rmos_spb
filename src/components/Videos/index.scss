@@ -1,4 +1,4 @@
-@import "~constants/CSS/index";
+@import "~styles/constants";
 
 .videos {
   position: relative;
@@ -7,19 +7,13 @@
   width: 100%;
   box-sizing: border-box;
 
-  .videos__container {
-    display: flex;
-    flex-flow: row wrap;
-    width: 100%;
-  }
-
   .video {
     position: relative;
     display: flex;
     flex-flow: column nowrap;
     flex-shrink: 0;
     width: 25%;
-    padding: $PADDING / 2;
+    padding: $padding / 2;
     box-sizing: border-box;
 
     &:nth-child(-n+4) {
@@ -39,7 +33,7 @@
     }
 
     .video__title {
-      margin-top: $PADDING / 2;
+      margin-top: $padding / 2;
       font-family: Circe;
       font-size: 1rem;
       line-height: 1.2;
@@ -47,4 +41,16 @@
       text-align: center;
     }
   }
+}
+
+.videos__list {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  max-height: 50vh;
+  min-height: 300px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
 }

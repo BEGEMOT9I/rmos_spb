@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
+import moment from 'moment'
 
 import './index.scss'
 
@@ -10,9 +11,10 @@ class EventItem extends Component {
 
   render() {
     return (
-      <div className="event__item">
+      <li className="event__item">
         <Link to={ `/event/${this.props.data.id}` } className="item__title">{ this.props.data.title }</Link>
-      </div>
+        <time className="item__time">{ moment(this.props.data.start_time).format('DD/MM/YYYY') }</time>
+      </li>
     )
   }
 }

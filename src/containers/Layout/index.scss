@@ -1,4 +1,4 @@
-@import "~constants/CSS/index";
+@import "~styles/constants";
 
 ::-webkit-scrollbar {
   width: 4px;
@@ -39,7 +39,7 @@ body {
   left: 0;
   width: 100%;
   min-height: 100vh;
-  padding: 50px $PADDING 0 $PADDING;
+  padding: 50px $padding 0 $padding;
   opacity: 1;
   overflow: hidden;
   box-sizing: border-box;
@@ -51,11 +51,15 @@ body {
     box-shadow: 0 2px 10px 2px #bbb;
 
     & + .page-template__block {
-      margin-top: $PADDING;
+      margin-top: $padding;
     }
 
     h1 {
-      margin-left: $PADDING;
+      margin: $padding / 2 $padding / 2 0 $padding / 2;
+    }
+
+    .empty-phrase {
+      margin-left: 40px;
     }
   }
 }

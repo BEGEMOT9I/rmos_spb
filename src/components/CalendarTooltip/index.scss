@@ -1,4 +1,4 @@
-@import "~constants/CSS/index";
+@import "~styles/constants";
 
 .calendar-tooltip {
   position: absolute;
@@ -21,14 +21,14 @@
 
 .tooltip-list {
   position: relative;
-  width: calc(100% - #{$PADDING});
-  margin: $PADDING / 2;
+  width: calc(100% - #{$padding});
+  margin: $padding / 2;
   padding: 0;
   list-style: none;
 }
 
-.tooltip-item + .tooltip-item{
-  margin-top: $PADDING / 4;
+.tooltip-item + .tooltip-item {
+  margin-top: $padding / 4;
 }
 
 .tooltip-item__link {

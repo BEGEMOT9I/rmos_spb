@@ -16,4 +16,4 @@ export const tooltip = (state = initialState, action) => {
     default:
       return state
   }
-};
+}

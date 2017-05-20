@@ -1,6 +1,6 @@
-@import "~constants/CSS/index";
+@import "~styles/constants";
 
-.documents-list {
+.documents__list {
   display: flex;
   flex-flow: row wrap;
   width: 100%;
@@ -14,7 +14,7 @@
   flex-flow: column nowrap;
   align-items: center;
   width: 20%;
-  padding: $PADDING / 4;
+  padding: $padding / 4;
   box-sizing: border-box;
 
   .doc__icon {

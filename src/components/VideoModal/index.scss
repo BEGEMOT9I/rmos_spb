@@ -1,4 +1,4 @@
-@import "~constants/CSS/index";
+@import "~styles/constants";
 $header-size: 47px;
 
 .modal-window {
@@ -33,9 +33,9 @@ $header-size: 47px;
     flex-shrink: 1;
     top: 0;
     left: 0;
-    width: calc(100% - #{$PADDING * 2});
+    width: calc(100% - #{$padding * 2});
     height: 100%;
-    margin: $PADDING * 2 + $header-size $PADDING $PADDING $PADDING;
+    margin: $padding * 2 + $header-size $padding $padding $padding;
     overflow: hidden;
 
     .video {
@@ -73,8 +73,8 @@ $header-size: 47px;
     display: flex;
     flex-flow: row wrap;
     flex-shrink: 0;
-    width: calc(100% - #{$PADDING * 2});
-    margin: 0 $PADDING $PADDING $PADDING;
+    width: calc(100% - #{$padding * 2});
+    margin: 0 $padding $padding $padding;
     list-style: none;
 
     .videos__item {
@@ -83,7 +83,7 @@ $header-size: 47px;
       flex-flow: column nowrap;
       flex-shrink: 0;
       width: 25%;
-      padding: 0 $PADDING / 2;
+      padding: 0 $padding / 2;
       box-sizing: border-box;
 
       .video__pic {
@@ -99,7 +99,7 @@ $header-size: 47px;
       }
 
       .video__title {
-        margin-top: $PADDING / 2;
+        margin-top: $padding / 2;
         font-family: Circe;
         font-size: 1rem;
         line-height: 1.2;
@@ -113,16 +113,16 @@ $header-size: 47px;
     $height: 4px;
 
     position: absolute;
-    top: 47px + $PADDING / 2;
-    right: $PADDING / 2;
-    width: $PADDING;
-    height: $PADDING;
+    top: 47px + $padding / 2;
+    right: $padding / 2;
+    width: $padding;
+    height: $padding;
 
     &:before,
     &:after {
       content: '';
       position: absolute;
-      top: $PADDING / 2 - $height / 2;
+      top: $padding / 2 - $height / 2;
       left: 0;
       width: 100%;
       height: $height;

@@ -4,14 +4,17 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import $ from 'jquery'
 import _ from 'lodash'
 
+import VIDEOTYPES from '../../constants/VIDEOTYPES'
+
 import * as videoModal from '../../actions/videoModal'
+import * as media from '../../actions/media'
 
 import './index.scss'
 
 class VideoModal extends Component {
   render() {
     return (
-      <div className={ (this.props.opened) ? 'modal-window modal-window_opened' : 'modal-window' }>
+      <div className={ (this.props.opened) ? 'modal-window modal-window_opened' : 'modal-window' } onPlay={ this.props.updateMedia }>
         <ReactCSSTransitionGroup
           component="div"
           className="modal-window__video-wrapper"
@@ -21,8 +24,8 @@ class VideoModal extends Component {
         >
           {
             this.props.video &&
-            <video key={ `modal-video-${this.props.video.id}` } className="video" playsInline controls>
-              <source src={ `${API_URL}${this.props.video.file.url}` } type="video/mp4"></source>
+            <video id={ `video-${this.props.video.id}` } key={ `modal-video-${this.props.video.id}` } className="video" playsInline controls>
+              <source src={ `${API_URL}${this.props.video.file.url}` } type={ VIDEOTYPES[this.props.video.extension].type }></source>
             </video>
           }
         </ReactCSSTransitionGroup>
@@ -59,7 +62,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   closeModal: open => dispatch(videoModal.toggle(open)),
-  selectVideo: video => dispatch(videoModal.selectVideo(video))
+  selectVideo: video => dispatch(videoModal.selectVideo(video)),
+  updateMedia: event => dispatch(media.update(event.target.getAttribute('id'))),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoModal)

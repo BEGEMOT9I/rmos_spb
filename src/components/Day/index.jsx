@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import classNames from 'classnames'
-
-import { FormattingDate } from '../../modules/helpers'
+import moment from 'moment'
 
 import * as calendar from '../../actions/calendar'
 import * as tooltip from '../../actions/tooltip'
@@ -43,7 +42,7 @@ class Day extends Component {
   render() {
     return (
       <div
-        className={ classNames('day', { 'day_selected': this.props.selectedDays[FormattingDate(this.date)] }) }
+        className={ classNames('day', { 'day_selected': this.props.selectedDays[moment(this.date).format('DD/MM/YYYY')] }) }
         onClick={ () => this.props.toggleDay(this.date) }
         onMouseEnter={ this.showTooltip }
         onMouseLeave={ this.hideTooltip }

@@ -1,6 +1,7 @@
 import { uniqueId } from 'lodash'
+import moment from 'moment'
 
-import { IsEqualDates, FormattingDate } from '../../modules/helpers'
+import { IsEqualDates } from '../../modules/helpers'
 
 import * as actions from '../../actions/calendar';
 
@@ -16,7 +17,7 @@ export const calendar = (state = initialState, action) => {
   switch (action.type) {
     case actions.TOGGLE_DAY:
       let selected = { ...state.selectedDays }
-      const day = FormattingDate(action.payload)
+      const day = moment(action.payload).format('DD/MM/YYYY')
 
       if (selected[day]) {
         delete selected[day]

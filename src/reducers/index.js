@@ -6,6 +6,7 @@ import { calendar } from './calendar'
 import { videoModal } from './videoModal'
 import { categories } from './categories'
 import { tooltip } from './tooltip'
+import { media } from './media'
 
 export default combineReducers({
 	routing,
@@ -13,5 +14,6 @@ export default combineReducers({
   calendar,
   videoModal,
   categories,
-  tooltip
-});
+  tooltip,
+  media,
+})
