@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module RmosSpb
   class Application < Rails::Application
+    config.DEFAULT_BRANCH = 1
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do
         origins '*'

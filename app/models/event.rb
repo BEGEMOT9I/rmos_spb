@@ -2,6 +2,8 @@ class Event < ApplicationRecord
   mount_uploader :file, ImageUploader
   mount_uploader :video, VideoUploader
 
+  belongs_to :branch
+
   has_many :external_documents, dependent: :destroy
 
   has_and_belongs_to_many :categories

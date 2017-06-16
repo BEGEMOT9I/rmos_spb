@@ -1,6 +1,12 @@
 ActiveAdmin.register Event do
 
-  permit_params :title, :file, :video, :description, :external_documents, :start_time, external_documents_attributes: [:id, :file, :_destroy], category_ids: [], document_ids: []
+  permit_params :title, :file, :video, :description, :external_documents, :start_time, :branch_id, external_documents_attributes: [:id, :file, :_destroy], category_ids: [], document_ids: []
+  
+  controller do
+    def scoped_collection
+      Event.where(branch: current_admin_user.branch)
+    end
+  end
 
   index do
     selectable_column
@@ -42,6 +48,7 @@ ActiveAdmin.register Event do
 
   form do |f|
     f.inputs 'Мероприятие' do
+      f.object.branch = current_admin_user.branch
       f.input :title
       f.input :file, :as => :file, :hint => f.object.file.present? \
         ? image_tag(f.object.file.url(), width: 200)
@@ -52,13 +59,14 @@ ActiveAdmin.register Event do
         : content_tag(:span, "Нет видео")
       f.input :video_cache, :as => :hidden
       f.input :category_ids, collection: Category.all.map { |d| [d.title, d.id] }, multiple: 'multiple'
-      f.input :document_ids, collection: Document.all.map { |d| [d.title, d.id] }, multiple: 'multiple'
+      f.input :document_ids, collection: Document.where(branch: current_admin_user.branch).map { |d| [d.title, d.id] }, multiple: 'multiple'
       f.has_many :external_documents, allow_destroy: true do |ff|
         ff.input :file, label: ff.object&.file_identifier
       end
       f.label :description, class: 'label-desc'
       f.cktext_area :description, ckeditor: { language: 'ru'}
       f.input :start_time, :as => :date_time_picker
+      f.input :branch
     end
     f.actions do
       f.action :submit, as: :button, label: 'Save'

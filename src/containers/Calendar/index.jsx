@@ -14,10 +14,11 @@ import './index.scss'
 class Calendar extends Component {
   constructor(props) {
     super(props)
-    this.firstDay = new Date(this.props.events[0].start_time)
-    this.lastDay = new Date(this.props.events[this.props.events.length - 1].start_time)
 
     const now = new Date()
+    this.firstDay = (this.props.events[0]) ? new Date(this.props.events[0].start_time) : now
+    this.lastDay = (this.props.events[this.props.events.length - 1]) ? new Date(this.props.events[this.props.events.length - 1].start_time) : now
+
     if (now.getTime() < this.firstDay.getTime()) {
       this.firstDay = now
     }

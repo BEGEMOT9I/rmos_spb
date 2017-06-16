@@ -1,5 +1,11 @@
 ActiveAdmin.register AdminUser do
-  permit_params :email, :password, :password_confirmation
+  permit_params :email, :password, :password_confirmation, :branch_id
+
+  controller do
+    def scoped_collection
+      AdminUser.where(branch: current_admin_user.branch)
+    end
+  end
 
   index do
     selectable_column
@@ -8,6 +14,7 @@ ActiveAdmin.register AdminUser do
     column :current_sign_in_at
     column :sign_in_count
     column :created_at
+    column :branch
     actions
   end
 
@@ -21,6 +28,7 @@ ActiveAdmin.register AdminUser do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :branch
     end
     f.actions
   end
