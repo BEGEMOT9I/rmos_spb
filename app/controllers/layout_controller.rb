@@ -1,5 +1,5 @@
 class LayoutController < ApplicationController
-  layout 'layout'
+  layout false
 
   def index
     # if Branch.where(path: request.fullpath).count
