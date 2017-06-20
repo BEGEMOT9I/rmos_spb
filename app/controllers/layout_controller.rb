@@ -6,6 +6,6 @@ class LayoutController < ApplicationController
     #   render 'layouts/layout'
     # else
     #   render 'errors/404', layout: false, status: 404
-    render 'layouts/layout'
+    render file: 'public/index.html'
   end
 end
